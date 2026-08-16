@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-finora-bg: var(--finora-bg);
+  --color-finora-surface: var(--finora-surface);
+  --color-finora-surface-secondary: var(--finora-surface-secondary);
+  --color-finora-accent: var(--finora-accent);
+  --color-finora-accent-secondary: var(--finora-accent-secondary);
+  --color-finora-income: var(--finora-income);
+  --color-finora-expense: var(--finora-expense);
+  --color-finora-warning: var(--finora-warning);
+  --color-finora-text: var(--finora-text);
+  --color-finora-text-secondary: var(--finora-text-secondary);
+  --color-finora-border: var(--finora-border);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root,
+[data-theme='dark'] {
+  --finora-bg: #0b1117;
+  --finora-surface: #111b22;
+  --finora-surface-secondary: #1a242c;
+  --finora-accent: #10b981;
+  --finora-accent-secondary: #8b5cf6;
+  --finora-income: #22c55e;
+  --finora-expense: #ff6b6b;
+  --finora-warning: #f59e0b;
+  --finora-text: #e6eef3;
+  --finora-text-secondary: #94a3b8;
+  --finora-border: #1e2a33;
+  --finora-sidebar-active: rgba(16, 185, 129, 0.15);
+  --finora-overlay: rgba(2, 6, 23, 0.6);
+  --finora-shadow: rgba(0, 0, 0, 0.25);
+}
+
+[data-theme='light'] {
+  --finora-bg: #f8fafc;
+  --finora-surface: #ffffff;
+  --finora-surface-secondary: #f1f5f9;
+  --finora-accent: #10b981;
+  --finora-accent-secondary: #8b5cf6;
+  --finora-income: #16a34a;
+  --finora-expense: #dc2626;
+  --finora-warning: #d97706;
+  --finora-text: #1f2937;
+  --finora-text-secondary: #64748b;
+  --finora-border: #e2e8f0;
+  --finora-sidebar-active: rgba(16, 185, 129, 0.1);
+  --finora-overlay: rgba(15, 23, 42, 0.4);
+  --finora-shadow: rgba(15, 23, 42, 0.08);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--finora-bg);
+  color: var(--finora-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--finora-accent) 35%, transparent);
+  color: var(--finora-text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--finora-accent);
+  outline-offset: 2px;
+}
