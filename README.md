@@ -1,6 +1,6 @@
 Monixa — Smart Personal Finance Dashboard
 
-Live demo: [add your deployed link here]
+Live demo: https://monixa.vercel.app
 
 Monixa is a modern personal finance dashboard built to help you track income and expenses, manage budgets, follow savings goals, and understand your spending habits at a glance. It's a fully client-side application — clean, fast, and built with a focus on real, working functionality rather than static mockups.
 
