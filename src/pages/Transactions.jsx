@@ -36,9 +36,9 @@ export default function Transactions() {
     try {
       const saved = localStorage.getItem(STORAGE_KEY)
       if (saved) return JSON.parse(saved)
-      return DEFAULT_TRANSACTIONS
+      return []
     } catch {
-      return DEFAULT_TRANSACTIONS
+      return []
     }
   })
 
