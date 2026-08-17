@@ -8,14 +8,14 @@ This is a frontend portfolio project. All data is stored locally in your browser
 
 ✨ Features
 
-- Dashboard — Real-time overview of balance, income, expenses, and savings, with an income vs. expenses trend chart and a spending breakdown by category
-- Transactions — Add, search, filter, and delete income/expense entries with category tagging
-- Budgets — Set monthly spending limits per category, with visual progress bars and over-budget warnings
-- Goals — Set savings targets linked to income categories, auto-tracked as you log income
-- Recurring Payments — Automatically detects repeating subscriptions/bills from transaction history and flags upcoming due dates
-- Analytics — Deeper breakdown of spending trends, savings rate, and category analysis over custom time periods
-- Settings — Editable profile, multi-currency support (PKR, USD, EUR, GBP, INR), light/dark theme, and full report export as a branded **PDF** or raw **JSON** backup
-- Period filtering — View stats and charts by week, month, last 3 months, or year
+- Dashboard: Real-time overview of balance, income, expenses, and savings, with an income vs. expenses trend chart and a spending breakdown by category
+- Transactions: Add, search, filter, and delete income/expense entries with category tagging
+- Budgets: Set monthly spending limits per category, with visual progress bars and over-budget warnings
+- Goals: Set savings targets linked to income categories, auto-tracked as you log income
+- Recurring Payments: Automatically detects repeating subscriptions/bills from transaction history and flags upcoming due dates
+- Analytics: Deeper breakdown of spending trends, savings rate, and category analysis over custom time periods
+- Settings: Editable profile, multi-currency support (PKR, USD, EUR, GBP, INR), light/dark theme, and full report export as a branded **PDF** or raw **JSON** backup
+- Period filtering: View stats and charts by week, month, last 3 months, or year
 - Fully responsive, animated, and accessible interface
 
 🛠️ Tech Stack
