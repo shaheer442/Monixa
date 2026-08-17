@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Sun, Moon, Download, FileText, Trash2, AlertTriangle, Coins } from 'lucide-react'
+import { Sun, Moon, Download, FileText, Trash2, AlertTriangle, Coins, Sparkles } from 'lucide-react'
 import jsPDF from 'jspdf'
 import {
   getCurrentCurrency,
@@ -390,6 +390,62 @@ const handleExportPDF = async () => {
     }
   }
 
+  const handleLoadDemoData = () => {
+    const demoTransactions = [
+      { id: 'd1', type: 'income', description: 'Salary', category: 'Salary', amount: 85000, date: '2026-03-01' },
+      { id: 'd2', type: 'income', description: 'Salary', category: 'Salary', amount: 85000, date: '2026-04-01' },
+      { id: 'd3', type: 'income', description: 'Salary', category: 'Salary', amount: 85000, date: '2026-05-01' },
+      { id: 'd4', type: 'income', description: 'Salary', category: 'Salary', amount: 85000, date: '2026-06-01' },
+      { id: 'd5', type: 'income', description: 'Salary', category: 'Salary', amount: 85000, date: '2026-07-01' },
+      { id: 'd6', type: 'income', description: 'Salary', category: 'Salary', amount: 85000, date: '2026-08-01' },
+      { id: 'd7', type: 'income', description: 'Freelance Project', category: 'Freelance', amount: 20000, date: '2026-05-15' },
+      { id: 'd8', type: 'income', description: 'Freelance Project', category: 'Freelance', amount: 15000, date: '2026-07-10' },
+      { id: 'd9', type: 'income', description: 'Transferred to Savings', category: 'Savings', amount: 12000, date: '2026-05-05' },
+      { id: 'd10', type: 'income', description: 'Transferred to Savings', category: 'Savings', amount: 15000, date: '2026-06-05' },
+      { id: 'd11', type: 'income', description: 'Transferred to Savings', category: 'Savings', amount: 15000, date: '2026-07-05' },
+      { id: 'd12', type: 'income', description: 'Transferred to Savings', category: 'Savings', amount: 18000, date: '2026-08-05' },
+      { id: 'd13', type: 'expense', description: 'Netflix Subscription', category: 'Entertainment', amount: 2500, date: '2026-06-03' },
+      { id: 'd14', type: 'expense', description: 'Netflix Subscription', category: 'Entertainment', amount: 2500, date: '2026-07-03' },
+      { id: 'd15', type: 'expense', description: 'Netflix Subscription', category: 'Entertainment', amount: 2500, date: '2026-08-03' },
+      { id: 'd16', type: 'expense', description: 'Electricity Bill', category: 'Bills', amount: 7000, date: '2026-06-05' },
+      { id: 'd17', type: 'expense', description: 'Electricity Bill', category: 'Bills', amount: 6800, date: '2026-07-05' },
+      { id: 'd18', type: 'expense', description: 'Electricity Bill', category: 'Bills', amount: 7200, date: '2026-08-05' },
+      { id: 'd19', type: 'expense', description: 'Gym Membership', category: 'Health', amount: 3000, date: '2026-07-01' },
+      { id: 'd20', type: 'expense', description: 'Gym Membership', category: 'Health', amount: 3000, date: '2026-08-01' },
+      { id: 'd21', type: 'expense', description: 'Grocery Shopping', category: 'Food', amount: 8500, date: '2026-08-08' },
+      { id: 'd22', type: 'expense', description: 'Hoteling', category: 'Food', amount: 4000, date: '2026-08-09' },
+      { id: 'd23', type: 'expense', description: 'Dinner with Friends', category: 'Food', amount: 3200, date: '2026-05-22' },
+      { id: 'd24', type: 'expense', description: 'Uber Rides', category: 'Transport', amount: 4200, date: '2026-08-11' },
+      { id: 'd25', type: 'expense', description: 'Uber Rides', category: 'Transport', amount: 3800, date: '2026-07-18' },
+      { id: 'd26', type: 'expense', description: 'New Shoes', category: 'Shopping', amount: 6500, date: '2026-08-12' },
+      { id: 'd27', type: 'expense', description: 'Online Course', category: 'Education', amount: 5000, date: '2026-06-20' },
+    ]
+
+    const demoBudgets = [
+      { id: 'db1', category: 'Food', limit: 10000 },
+      { id: 'db2', category: 'Bills', limit: 6000 },
+      { id: 'db3', category: 'Entertainment', limit: 3000 },
+      { id: 'db4', category: 'Transport', limit: 3500 },
+    ]
+
+    const demoGoals = [
+      { id: 'dg1', name: 'Emergency Fund', category: 'Savings', target: 100000, deadline: '2026-12-31' },
+      { id: 'dg2', name: 'Freelance Growth', category: 'Freelance', target: 50000, deadline: '2026-11-30' },
+    ]
+
+    try {
+      localStorage.setItem(TRANSACTIONS_KEY, JSON.stringify(demoTransactions))
+      localStorage.setItem(BUDGETS_KEY, JSON.stringify(demoBudgets))
+      localStorage.setItem(GOALS_KEY, JSON.stringify(demoGoals))
+
+      setFeedback('Demo data loaded — refreshing...')
+      setTimeout(() => window.location.reload(), 1000)
+    } catch (error) {
+      console.error('Failed to load demo data:', error)
+      setFeedback('Failed to load demo data. Check console for details.')
+    }
+  }
+
   const handleClearData = () => {
     if (!confirmingClear) {
       setConfirmingClear(true)
@@ -509,9 +565,19 @@ return (
       <section className="rounded-2xl border border-finora-border bg-finora-surface p-6">
         <h3 className="text-lg font-semibold text-finora-text">Your data</h3>
         <p className="mt-1 text-sm text-finora-text-secondary">
-          Export a backup of your transactions, budgets, and goals, or clear
-          everything and start fresh.
+          Export a backup of your transactions, budgets, and goals, load
+          sample data to explore the app, or clear everything and start
+          fresh.
         </p>
+
+        <button
+          type="button"
+          onClick={handleLoadDemoData}
+          className="mt-4 flex items-center justify-center gap-2 rounded-xl border border-finora-accent/40 bg-finora-accent/10 px-5 py-2.5 text-sm font-medium text-finora-accent transition active:scale-95 hover:bg-finora-accent/20"
+        >
+          <Sparkles size={16} />
+          Load Demo Data
+        </button>
 
        <div className="mt-4 flex flex-col gap-3 sm:flex-row">
         <button
